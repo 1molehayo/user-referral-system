@@ -1,7 +1,7 @@
 import React from 'react';
 import PageLayout from 'layouts';
 
-const Page = () => (
+const ReferAFriend = () => (
   <PageLayout pageClass="page">
     <section className="section">
       <div className="container">
@@ -12,4 +12,4 @@ const Page = () => (
   </PageLayout>
 );
 
-export default Page;
+export default ReferAFriend;

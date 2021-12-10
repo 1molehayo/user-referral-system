@@ -2,20 +2,23 @@ $colors: (
   black: #000,
   dark: #4a4a4a,
   grey: #7a7a7a,
+  green: #35c68a,
   light-grey: #f8f9fa,
-  primary: #8d26b1,
-  red: #f00,
+  off-white: rgba(255, 255, 255, 0.7),
+  primary: #314761,
+  red: #ff6161,
+  secondary: #6bf4c1,
   white: #fff
 );
 
 $font-families: (
-  nunito: 'Nunito',
-  playfair: 'PlayfairDisplay'
+  raleway: 'Raleway',
+  icomoon: 'icomoon'
 );
 
 $font-weights: (
-  light: 300,
   regular: 400,
+  medium: 500,
   semi-bold: 600,
   bold: 700
 );
@@ -29,5 +32,5 @@ $font-sizes: (
   large: 24px,
   m-large: 35px,
   x-large: 40px,
-  xx-large: 70px
+  xx-large: 72px
 );

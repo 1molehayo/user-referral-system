@@ -1,24 +1,25 @@
-.heading {
+h1,
+h2,
+h3 {
   @include respond(small) {
     @include font-size(medium);
   }
 
-  @include font-family(playfair);
   @include font-size(large);
   @include font-weight(bold);
   margin-bottom: 1.5rem;
-  color: color(black);
 }
 
-.paragraph {
+h4,
+h5,
+h6,
+p {
   @include respond(small) {
     @include font-size(small);
   }
 
-  @include font-family(nunito);
   @include font-size(regular);
   @include font-weight(regular);
   line-height: 1.8;
   letter-spacing: 0.2px;
-  color: color(grey);
 }

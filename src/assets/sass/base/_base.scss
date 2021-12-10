@@ -1,8 +1,9 @@
 body {
-  @include font-family(nunito);
+  @include font-family(raleway);
   @include font-size(regular);
   @include font-weight(regular);
+  background-color: color(primary);
   line-height: normal;
   letter-spacing: normal;
-  color: color(grey);
+  color: color(white);
 }

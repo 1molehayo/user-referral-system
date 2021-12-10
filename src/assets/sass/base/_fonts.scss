@@ -1,24 +1,10 @@
-// Playfair Display
+/* icomoon @font-face kit */
 @font-face {
-  font-family: 'PlayfairDisplay';
-  font-weight: 400;
+  font-family: 'icomoon';
+  font-weight: normal;
   font-style: normal;
-  src: url('../../fonts/playfair-display/PlayfairDisplay-Regular.ttf')
-    format('truetype');
-}
-
-@font-face {
-  font-family: 'PlayfairDisplay';
-  font-weight: 700;
-  font-style: normal;
-  src: url('../../fonts/playfair-display/PlayfairDisplay-Bold.ttf')
-    format('truetype');
-}
-
-@font-face {
-  font-family: 'PlayfairDisplay';
-  font-weight: 900;
-  font-style: normal;
-  src: url('../../fonts/playfair-display/PlayfairDisplay-Black.ttf')
-    format('truetype');
+  src: url('../../fonts/icomoon/icomoon.eot?#iefix') format('embedded-opentype'),
+    url('../../fonts/icomoon/icomoon.woff') format('woff'),
+    url('../../fonts/icomoon/icomoon.ttf') format('truetype'),
+    url('../../fonts/icomoon/icomoon.svg') format('svg');
 }

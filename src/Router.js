@@ -1,56 +1,92 @@
-import React, { lazy, Suspense } from 'react';
-import { Router, Route, Switch, withRouter } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import React, { lazy, Suspense, useEffect, useState } from 'react';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect
+} from 'react-router-dom';
+import PageNavigationListener from 'services/PageNavigationListener';
+import { AnimatePresence } from 'framer-motion';
 import { Loader } from './components';
-import history from './history';
 
 const Home = lazy(() => import('pages/Home'));
+const Contact = lazy(() => import('pages/Contact'));
+const ReferAFriend = lazy(() => import('pages/ReferAFriend'));
 const Page = lazy(() => import('pages/DefaultPage'));
 
-const Scroll = (props) => {
-  React.useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [props.location]);
+const RouterComponent = () => {
+  const [actPreload, setActPreload] = useState(true);
 
-  return props.children;
+  useEffect(() => {
+    const t = setTimeout(() => {
+      setActPreload(false);
+    }, 2000);
+    return () => {
+      clearTimeout(t);
+    };
+  });
+
+  return (
+    <>
+      {actPreload && <Loader />}
+
+      <Router>
+        <PageNavigationListener />
+
+        <Switch>
+          <Route
+            exact
+            path="/"
+            render={(routeProps) => (
+              <Suspense fallback={null}>
+                <AnimatePresence exitBeforeEnter>
+                  <Home {...routeProps} />
+                </AnimatePresence>
+              </Suspense>
+            )}
+          />
+
+          <Route
+            exact
+            path="/refer-a-friend"
+            render={(routeProps) => (
+              <Suspense fallback={null}>
+                <AnimatePresence exitBeforeEnter>
+                  <ReferAFriend {...routeProps} />
+                </AnimatePresence>
+              </Suspense>
+            )}
+          />
+
+          <Route
+            exact
+            path="/contact-us"
+            render={(routeProps) => (
+              <Suspense fallback={null}>
+                <AnimatePresence exitBeforeEnter>
+                  <Contact {...routeProps} />
+                </AnimatePresence>
+              </Suspense>
+            )}
+          />
+
+          <Route
+            exact
+            path="/404"
+            render={(routeProps) => (
+              <Suspense fallback={null}>
+                <AnimatePresence exitBeforeEnter>
+                  <Page {...routeProps} />
+                </AnimatePresence>
+              </Suspense>
+            )}
+          />
+
+          <Redirect to="/404" />
+        </Switch>
+      </Router>
+    </>
+  );
 };
-
-Scroll.propTypes = {
-  location: PropTypes.object,
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node
-  ])
-};
-
-const ScrollToTop = withRouter(Scroll);
-
-const RouterComponent = () => (
-  <Router history={history}>
-    <ScrollToTop>
-      <Switch>
-        <Route
-          exact
-          path="/"
-          render={(routeProps) => (
-            <Suspense fallback={<Loader show />}>
-              <Home {...routeProps} />
-            </Suspense>
-          )}
-        />
-
-        <Route
-          exact
-          path="/page"
-          render={(routeProps) => (
-            <Suspense fallback={<Loader show />}>
-              <Page {...routeProps} />
-            </Suspense>
-          )}
-        />
-      </Switch>
-    </ScrollToTop>
-  </Router>
-);
 
 export default RouterComponent;
