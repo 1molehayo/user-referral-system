@@ -1,3 +1,5 @@
+export * from './action-types';
+
 export const PAGE_ANIMATION = {
   duration: { duration: 1 },
 

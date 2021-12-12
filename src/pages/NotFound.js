@@ -1,15 +1,15 @@
 import React from 'react';
 import PageLayout from 'layouts';
 
-const Contact = () => (
-  <PageLayout>
+const NotFound = () => (
+  <PageLayout className="not-found">
     <section className="section">
       <div className="container">
-        <h3>Contact Us</h3>
+        <h3>404</h3>
         <p>This is a generic page</p>
       </div>
     </section>
   </PageLayout>
 );
 
-export default Contact;
+export default NotFound;

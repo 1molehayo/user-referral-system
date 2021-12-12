@@ -1,0 +1,13 @@
+.login {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 500px;
+  min-height: calc(100vh - 85px);
+  text-align: center;
+
+  &__logo {
+    display: inline-block;
+    margin-bottom: 7.5rem;
+    width: 220px;
+  }
+}

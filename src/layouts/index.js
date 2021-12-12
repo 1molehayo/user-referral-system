@@ -8,9 +8,9 @@ import { Footer } from './Footer';
 
 const PageLayout = (props) => (
   <>
-    <Header />
+    {props.hasHeader && <Header />}
 
-    <main className={classnames('page-body', props.pageClass)}>
+    <main className={classnames('page-body', props.className)}>
       <motion.div
         className="div"
         exit="out"
@@ -29,7 +29,12 @@ const PageLayout = (props) => (
 
 PageLayout.propTypes = {
   children: PropTypes.node,
-  pageClass: PropTypes.string
+  hasHeader: PropTypes.bool,
+  className: PropTypes.string
+};
+
+PageLayout.defaultProps = {
+  hasHeader: true
 };
 
 export default PageLayout;

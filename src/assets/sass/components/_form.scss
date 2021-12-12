@@ -1,0 +1,45 @@
+.form {
+  &__error {
+    @include font-size(x-small);
+    color: color(red);
+  }
+
+  &__group {
+    margin-bottom: 3.1rem;
+    width: 100%;
+
+    label {
+      @include font-size(small);
+      display: inline-block;
+      margin-bottom: 1rem;
+      color: color(white);
+    }
+
+    &--error {
+      .form__input {
+        border-color: color(red);
+      }
+    }
+  }
+
+  &__input {
+    @include font-size(small);
+    @include font-weight(medium);
+    display: inline-block;
+    border-radius: 5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.3rem 2.8rem;
+    width: 100%;
+    height: 5rem;
+    background: rgba(255, 255, 255, 0.1);
+    color: color(white);
+
+    &:focus-visible {
+      outline: color(secondary) auto 1px;
+    }
+
+    &--empty {
+      color: color(light-grey);
+    }
+  }
+}

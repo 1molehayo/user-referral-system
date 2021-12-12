@@ -10,12 +10,35 @@ import { AnimatePresence } from 'framer-motion';
 import { Loader } from './components';
 
 const Home = lazy(() => import('pages/Home'));
+const Login = lazy(() => import('pages/Login'));
 const Contact = lazy(() => import('pages/Contact'));
 const ReferAFriend = lazy(() => import('pages/ReferAFriend'));
-const Page = lazy(() => import('pages/DefaultPage'));
+const NotFound = lazy(() => import('pages/NotFound'));
 
 const RouterComponent = () => {
   const [actPreload, setActPreload] = useState(true);
+  const routes = [
+    {
+      name: '/',
+      Component: Login
+    },
+    {
+      name: '/home',
+      Component: Home
+    },
+    {
+      name: '/refer-a-friend',
+      Component: ReferAFriend
+    },
+    {
+      name: '/contact-us',
+      Component: Contact
+    },
+    {
+      name: '/404',
+      Component: NotFound
+    }
+  ];
 
   useEffect(() => {
     const t = setTimeout(() => {
@@ -34,53 +57,20 @@ const RouterComponent = () => {
         <PageNavigationListener />
 
         <Switch>
-          <Route
-            exact
-            path="/"
-            render={(routeProps) => (
-              <Suspense fallback={null}>
-                <AnimatePresence exitBeforeEnter>
-                  <Home {...routeProps} />
-                </AnimatePresence>
-              </Suspense>
-            )}
-          />
-
-          <Route
-            exact
-            path="/refer-a-friend"
-            render={(routeProps) => (
-              <Suspense fallback={null}>
-                <AnimatePresence exitBeforeEnter>
-                  <ReferAFriend {...routeProps} />
-                </AnimatePresence>
-              </Suspense>
-            )}
-          />
-
-          <Route
-            exact
-            path="/contact-us"
-            render={(routeProps) => (
-              <Suspense fallback={null}>
-                <AnimatePresence exitBeforeEnter>
-                  <Contact {...routeProps} />
-                </AnimatePresence>
-              </Suspense>
-            )}
-          />
-
-          <Route
-            exact
-            path="/404"
-            render={(routeProps) => (
-              <Suspense fallback={null}>
-                <AnimatePresence exitBeforeEnter>
-                  <Page {...routeProps} />
-                </AnimatePresence>
-              </Suspense>
-            )}
-          />
+          {routes.map(({ name, Component }, i) => (
+            <Route
+              key={i}
+              exact
+              path={name}
+              render={(routeProps) => (
+                <Suspense fallback={null}>
+                  <AnimatePresence exitBeforeEnter>
+                    <Component {...routeProps} />
+                  </AnimatePresence>
+                </Suspense>
+              )}
+            />
+          ))}
 
           <Redirect to="/404" />
         </Switch>

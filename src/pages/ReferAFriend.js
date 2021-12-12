@@ -2,11 +2,11 @@ import React from 'react';
 import PageLayout from 'layouts';
 
 const ReferAFriend = () => (
-  <PageLayout pageClass="page">
+  <PageLayout>
     <section className="section">
       <div className="container">
-        <h3 className="heading">Page</h3>
-        <p className="paragraph">This is a generic page</p>
+        <h3>Page</h3>
+        <p>This is a generic page</p>
       </div>
     </section>
   </PageLayout>

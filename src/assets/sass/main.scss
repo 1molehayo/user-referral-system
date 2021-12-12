@@ -12,9 +12,11 @@
 // vendors
 @import 'vendors/bootstrap';
 @import 'vendors/icomoon';
+@import 'vendors/toastify-js';
 
 // components
 @import 'components/button';
+@import 'components/form';
 @import 'components/loader';
 @import 'components/nav';
 @import 'components/tabs';
@@ -28,6 +30,7 @@
 // pages
 @import 'pages/home';
 @import 'pages/page';
+@import 'pages/login';
 
 // themes
 @import 'themes/default';

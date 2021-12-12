@@ -13,14 +13,24 @@
   }
 
   &-link {
+    @include font-weight(medium);
     color: color(white) !important;
+    transition: color 0.3s ease;
 
     &.active {
-      color: color(primary) !important;
+      color: color(secondary) !important;
+    }
+
+    &:hover {
+      color: color(secondary) !important;
     }
   }
 
   .navbar-brand {
     width: 170px;
+  }
+
+  .navbar-toggler {
+    border: 0;
   }
 }
